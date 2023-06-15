@@ -1,3 +1,7 @@
+# de Bijenkorf Frontend Assignment 🐝 💻
+
+Welcome! This technical assessment is designed to help us better understand your expertise and abilities, as well as provide a glimpse into your thought processes and working style. Remember, this isn't just about right or wrong answers—it's about showing us how you solve problems and implement solutions. We're eager to see your approach. Good luck!
+
 ## Exercises
 
 You will find the exercises and associated instructions in separate named folders in the root of this project. This assignment is [timeboxed](https://en.wikipedia.org/wiki/Timeboxing) to **8 hours** max.
