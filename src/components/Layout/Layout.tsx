@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Search from '../Search/Search';
+import Search from "../Search/Search";
 
 type Props = {
   children?: ReactNode;

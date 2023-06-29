@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 type Props = {
   className?: string;
   children?: ReactNode;
-}
+};
 
 export default function Header({ className, children }: Props) {
   return (
