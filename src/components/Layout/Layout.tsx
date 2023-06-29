@@ -11,7 +11,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header className="sticky bg-gray-300 top-0 p-4">
+      <Header className="sticky bg-gray-200 top-0 p-4">
         <Search />
       </Header>
       <div className="flex-grow">
