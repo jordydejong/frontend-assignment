@@ -1,11 +1,26 @@
 import { useEffect, useRef, useState } from "react";
+<<<<<<< Updated upstream
 import ClearIcon from "../Icons/ClearIcon";
 import SearchIcon from "../Icons/SeachIcon";
+import SearchResults from "./SearchResults";
+=======
+import { SearchResult } from "../../interfaces/search";
+import ClearIcon from "../Icons/ClearIcon";
+import SearchIcon from "../Icons/SeachIcon";
+import SearchResults from "./SearchResults";
+
+export const DEBOUNCE = 300;
+>>>>>>> Stashed changes
 
 export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
+<<<<<<< Updated upstream
   const [debouncedValue, setDebouncedValue] = useState("")
+=======
+  const [debouncedValue, setDebouncedValue] = useState("");
+  const [results, setResults] = useState<SearchResult[]>([]);
+>>>>>>> Stashed changes
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -14,12 +29,29 @@ export default function Search() {
   useEffect(() => {
     const delayInputTimeoutId = setTimeout(() => {
       setDebouncedValue(value);
+<<<<<<< Updated upstream
     }, 300);
+=======
+    }, DEBOUNCE);
+>>>>>>> Stashed changes
     return () => clearTimeout(delayInputTimeoutId);
   }, [value]);
 
   useEffect(() => {
+<<<<<<< Updated upstream
     console.log('go search for ', debouncedValue);
+=======
+    if (debouncedValue.length > 2) {
+      fetch(`/api/search?search=${debouncedValue}`)
+        .then((res) => res.json())
+        .then((res: SearchResult[]) => {
+          console.log(">>>>> res", res);
+          setResults(res);
+        });
+    } else {
+      setResults([]);
+    }
+>>>>>>> Stashed changes
   }, [debouncedValue]);
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) =>
@@ -56,6 +88,9 @@ export default function Search() {
           <title id="searchTitle">Zoeken</title>
           <SearchIcon className="fill-slate-400" />
         </label>
+        {!!results.length && (
+          <SearchResults term={debouncedValue} results={results} />
+        )}
       </div>
     </form>
   );

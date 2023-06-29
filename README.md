@@ -15,7 +15,10 @@
 - Added basic transitioning of "focus" styles
 - Created unit test for clear button/logic
 
-# exercise 2
+# exercise 3
 
 - Created API
 - Added debounce for searching
+- Retrieve search results, feed them to "dumb" UI component
+- Highlight seach term (current state: only first occurence is highlighted)
+- Mocked unit test for search mechanism
