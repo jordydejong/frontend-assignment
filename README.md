@@ -10,9 +10,7 @@
 
 # exercise 2
 
-- focus state
-- clear icon, making the search a controlled component
-
-todo
-- UI transitions for user interaction (not defined)
-- Unit test coverage
+- Added focus state
+- Created a clear icon, making the search a controlled component
+- Added basic transitioning of "focus" styles
+- Created unit test for clear button/logic

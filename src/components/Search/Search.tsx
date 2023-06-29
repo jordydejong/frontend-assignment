@@ -21,13 +21,18 @@ export default function Search() {
           id="search"
           ref={inputRef}
           value={value}
+          aria-label="search-input"
           onChange={onChange}
           autoFocus
           type="text"
           placeholder="Zoeken"
           className="transition ease-in-out duration-1000 text-sm top-0 appearance-none border border-slate-400 focus:border-black h-full w-full pt-2 pb-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
-        <div className="absolute h-6 top-1 right-[30px]" onClick={onClear}>
+        <div
+          className="absolute h-6 top-1 right-[30px]"
+          onClick={onClear}
+          aria-label="clear-icon"
+        >
           <ClearIcon className="fill-slate-400 hover:fill-slate-600 hover:cursor-pointer" />
         </div>
         <label
