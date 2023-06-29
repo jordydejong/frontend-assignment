@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import ClearIcon from "./ClearIcon";
-import SearchIcon from "./SeachIcon";
+import ClearIcon from "../Icons/ClearIcon";
+import SearchIcon from "../Icons/SeachIcon";
 
 export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
