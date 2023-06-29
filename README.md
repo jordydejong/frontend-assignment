@@ -18,3 +18,4 @@
 # exercise 2
 
 - Created API
+- Added debounce for searching

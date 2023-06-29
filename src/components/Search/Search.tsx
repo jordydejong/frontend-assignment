@@ -14,9 +14,9 @@ export default function Search() {
   useEffect(() => {
     const delayInputTimeoutId = setTimeout(() => {
       setDebouncedValue(value);
-    }, 500);
+    }, 300);
     return () => clearTimeout(delayInputTimeoutId);
-  }, [value, 500]);
+  }, [value]);
 
   useEffect(() => {
     console.log('go search for ', debouncedValue);
