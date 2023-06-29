@@ -14,3 +14,7 @@
 - Created a clear icon, making the search a controlled component
 - Added basic transitioning of "focus" styles
 - Created unit test for clear button/logic
+
+# exercise 2
+
+- Created API
