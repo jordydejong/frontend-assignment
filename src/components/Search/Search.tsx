@@ -5,13 +5,26 @@ import SearchIcon from "../Icons/SeachIcon";
 export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState("")
 
   useEffect(() => {
     inputRef.current?.focus();
   }, [inputRef.current]);
 
+  useEffect(() => {
+    const delayInputTimeoutId = setTimeout(() => {
+      setDebouncedValue(value);
+    }, 500);
+    return () => clearTimeout(delayInputTimeoutId);
+  }, [value, 500]);
+
+  useEffect(() => {
+    console.log('go search for ', debouncedValue);
+  }, [debouncedValue]);
+
   const onChange = (e: React.FormEvent<HTMLInputElement>) =>
     setValue(e.currentTarget.value);
+
   const onClear = () => setValue("");
 
   return (
