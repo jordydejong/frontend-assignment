@@ -25,6 +25,9 @@ const highlight = (str: string, term: string): ReactNode[] => {
   return [beforeNode, termNode, afterNode];
 };
 
+function selectResult(result: SearchResultResponse) {
+  alert('TODO open route for search term: ' + result.searchterm);
+};
 
 export default function SearchResults({ term, results }: Props) {
   return (
@@ -33,7 +36,7 @@ export default function SearchResults({ term, results }: Props) {
       data-testid="search-results"
     >
       {results.map((result) => (
-        <SearchResult key={result.searchterm} data-testid="search-result">
+        <SearchResult key={result.searchterm} data-testid="search-result" className="cursor-pointer" onClick={() => selectResult(result)}>
           {highlight(result.searchterm, term)} ({result.nrResults})
         </SearchResult>
       ))}
