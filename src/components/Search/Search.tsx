@@ -60,12 +60,11 @@ export default function Search() {
         >
           <ClearIcon className="fill-slate-400 hover:fill-slate-600 hover:cursor-pointer" />
         </div>
-        <label
+        <div
           className="h-8 right-0 top-0 absolute"
-          htmlFor="search"
         >
           <SearchIcon aria-label="Zoeken" className="fill-slate-400" />
-        </label>
+        </div>
         {debouncedValue &&
           debouncedValue.length >= MIN_LENGTH &&
           results !== null && (

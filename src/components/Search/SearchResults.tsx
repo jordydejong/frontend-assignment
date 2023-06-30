@@ -32,7 +32,7 @@ export default function SearchResults({ term, results }: Props) {
     >
       {results.map((result) => (
         <div key={result.searchterm} data-testid="search-result">
-          {highlight(result.searchterm, term)}
+          {highlight(result.searchterm, term)} ({result.nrResults})
         </div>
       ))}
 
