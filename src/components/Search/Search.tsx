@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { SearchResult } from "../../interfaces/search";
+import { SearchResultResponse } from "../../interfaces/search";
 import ClearIcon from "../Icons/ClearIcon";
 import SearchIcon from "../Icons/SeachIcon";
 import SearchResults from "./SearchResults";
@@ -11,7 +11,7 @@ export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
-  const [results, setResults] = useState<SearchResult[] | null>(null);
+  const [results, setResults] = useState<SearchResultResponse[] | null>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -29,7 +29,7 @@ export default function Search() {
     if (debouncedValue.length >= MIN_LENGTH) {
       fetch(`/api/search?search=${debouncedValue}`)
         .then((res) => res.json())
-        .then((res: SearchResult[]) => setResults(res));
+        .then((res: SearchResultResponse[]) => setResults(res));
     } else {
       setResults([]);
     }

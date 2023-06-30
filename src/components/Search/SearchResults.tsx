@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
-import { SearchResult } from "../../interfaces/search";
+import { SearchResultResponse } from "../../interfaces/search";
+import { SearchResult } from './SearchResult';
 
 type Props = {
-  results: SearchResult[];
+  results: SearchResultResponse[];
   term: string;
 };
 
@@ -24,19 +25,20 @@ const highlight = (str: string, term: string): ReactNode[] => {
   return [beforeNode, termNode, afterNode];
 };
 
+
 export default function SearchResults({ term, results }: Props) {
   return (
     <div
-      className="absolute border border-slate-400 bg-white w-full top[-2px]"
+      className="absolute  bg-white w-full"
       data-testid="search-results"
     >
       {results.map((result) => (
-        <div key={result.searchterm} data-testid="search-result">
+        <SearchResult key={result.searchterm} data-testid="search-result">
           {highlight(result.searchterm, term)} ({result.nrResults})
-        </div>
+        </SearchResult>
       ))}
 
-      {results.length == 0 && <div>geen resultaten</div>}
+      {results.length == 0 && <SearchResult>geen resultaten</SearchResult>}
     </div>
   );
 }
