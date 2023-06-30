@@ -11,18 +11,18 @@ export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
-  const [results, setResults] = useState<SearchResult[] | undefined>(undefined);
+  const [results, setResults] = useState<SearchResult[] | null>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
   }, [inputRef.current]);
 
   useEffect(() => {
-    const delayInputTimeoutId = setTimeout(() => {
+    const debounceTimeoutId = setTimeout(() => {
       setDebouncedValue(value);
     }, DEBOUNCE);
 
-    return () => clearTimeout(delayInputTimeoutId);
+    return () => clearTimeout(debounceTimeoutId);
   }, [value]);
 
   useEffect(() => {
@@ -49,7 +49,6 @@ export default function Search() {
           value={value}
           aria-label="search-input"
           onChange={onChange}
-          autoFocus
           type="text"
           placeholder="Zoeken"
           className="transition ease-in-out duration-1000 text-sm top-0 appearance-none border border-slate-400 focus:border-black h-full w-full pt-2 pb-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -64,14 +63,12 @@ export default function Search() {
         <label
           className="h-8 right-0 top-0 absolute"
           htmlFor="search"
-          aria-labelledby="searchTitle"
         >
-          <title id="searchTitle">Zoeken</title>
-          <SearchIcon className="fill-slate-400" />
+          <SearchIcon aria-label="Zoeken" className="fill-slate-400" />
         </label>
         {debouncedValue &&
           debouncedValue.length >= MIN_LENGTH &&
-          results !== undefined && (
+          results !== null && (
             <SearchResults term={debouncedValue} results={results} />
           )}
       </div>
