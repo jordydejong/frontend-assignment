@@ -34,21 +34,21 @@
 
 This exercise was timeboxed at 4 hours, including freshening up on my React knowledge. I tried to find the best solutions, with the right complexity for the provided requirements.
 
-If I would spend more time, I could have added some of the following:
+If I would spend more time, I would have added some of the following:
 
-- better Storybook integration
-- system/e2e tests
 - routing
 - state management
-- (better) separation between smart/dumb components
+- better Storybook integration
+- loading state
+- (more) accessibility 
+
+Other improvements, that might have been a bit overkill here
+
+- system/e2e tests
 - introducing a view model, not having backend API "leak" into low level components
 - using tokens from a design system
 - translations / i18n
 - server side rendering
-- loading state
-- (more) accessibility 
 - mono repo with automatic versioning / publishing / module boundaries / shared code
 - ESLint
 - CI pipeline
-
-... but that might have been a bit overkill for these simple requirements.
