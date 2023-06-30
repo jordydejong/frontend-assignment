@@ -41,6 +41,7 @@ If I would spend more time, I would have added some of the following:
 - better Storybook integration
 - loading state
 - (more) accessibility 
+- better responsive design, or styling in general
 
 Other improvements, that might have been a bit overkill here
 
