@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import { SearchResultResponse } from "../../interfaces/search";
-import { SearchResult } from './SearchResult';
+import { SearchResult } from "./SearchResult";
 
 type Props = {
   results: SearchResultResponse[];
+  activeIndex: number | null;
   term: string;
+  onSelect?: (result: SearchResultResponse) => void;
 };
 
 const highlight = (str: string, term: string): ReactNode[] => {
@@ -25,18 +27,21 @@ const highlight = (str: string, term: string): ReactNode[] => {
   return [beforeNode, termNode, afterNode];
 };
 
-function selectResult(result: SearchResultResponse) {
-  alert('TODO open route for search term: ' + result.searchterm);
-};
-
-export default function SearchResults({ term, results }: Props) {
+export default function SearchResults({
+  term,
+  activeIndex,
+  onSelect,
+  results,
+}: Props) {
   return (
-    <div
-      className="absolute  bg-white w-full"
-      data-testid="search-results"
-    >
-      {results.map((result) => (
-        <SearchResult key={result.searchterm} data-testid="search-result" className="cursor-pointer" onClick={() => selectResult(result)}>
+    <div className="absolute bg-white w-full" data-testid="search-results">
+      {results.map((result, index) => (
+        <SearchResult
+          key={result.searchterm}
+          isActive={activeIndex === index}
+          className="cursor-pointer"
+          onClick={() => onSelect && onSelect(result)}
+        >
           {highlight(result.searchterm, term)} ({result.nrResults})
         </SearchResult>
       ))}

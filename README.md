@@ -22,7 +22,7 @@
 - Retrieve search results, feed them to "dumb" UI component
 - Highlight seach term (current state: only first occurence is highlighted)
 - Mocked unit test for search mechanism
-
+- Basic keyboard navigation for search results
 
 # exercise 4
 

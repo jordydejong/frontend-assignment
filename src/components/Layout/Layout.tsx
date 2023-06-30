@@ -8,11 +8,15 @@ type Props = {
   title?: string;
 };
 
+function searchTerm(term: string) {
+  alert("TODO -- go search for " + term);
+}
+
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header className="sticky bg-gray-200 top-0 p-4">
-        <Search />
+        <Search onSelect={(term) => searchTerm(term)} />
       </Header>
       <div className="flex-grow">
         <main>{children}</main>
