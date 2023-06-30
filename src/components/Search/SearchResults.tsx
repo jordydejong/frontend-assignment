@@ -18,7 +18,7 @@ const highlight = (str: string, term: string): ReactNode[] => {
     <b key={`${str}-term`}>{str.substring(index, index + term.length)}</b>
   );
   const afterNode = (
-    <span key={`${str}-after`}>{str.substring(index + term.length )}</span>
+    <span key={`${str}-after`}>{str.substring(index + term.length)}</span>
   );
 
   return [beforeNode, termNode, afterNode];
@@ -35,6 +35,8 @@ export default function SearchResults({ term, results }: Props) {
           {highlight(result.searchterm, term)}
         </div>
       ))}
+
+      {results.length == 0 && <div>geen resultaten</div>}
     </div>
   );
 }
